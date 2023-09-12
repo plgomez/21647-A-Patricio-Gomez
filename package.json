@@ -1,0 +1,19 @@
+{
+  "name": "21647-a-patricio-gomez",
+  "version": "1.0.0",
+  "description": "proyecto final",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/plgomez/21647-A-Patricio-Gomez.git"
+  },
+  "author": "patricio gomez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/plgomez/21647-A-Patricio-Gomez/issues"
+  },
+  "homepage": "https://github.com/plgomez/21647-A-Patricio-Gomez#readme"
+}
