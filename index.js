@@ -46,6 +46,54 @@ app.post('/agregar', async function (req, res) {
     }
 })
 
+//editar post del foro
+app.get('/editar/:id', async function (req, res) {
+    const { id } = req.params;
+
+    try {
+        const posteo = await Post.findOne({
+            where: {
+                id: id
+            }
+        })
+
+        if (posteo) {
+            res.render('editar', { post: posteo });
+        } else {
+            res.send('No se pudo encontrar el posteo para editar :(')
+        }
+    } catch (err) {
+        res.send('Se produjo un errror al editar el posteo: ' + err)
+    }
+})
+
+app.post('/editar/:id', async function (req, res) {
+    const { id } = req.params;
+    const { titulo, descripcion, imagen } = req.body
+
+    try {
+        const postActualizado = await Post.update(
+            {
+                titulo: titulo,
+                descripcion: descripcion,
+                imagen : imagen
+            }, {
+                where: {
+                    id: id
+                }
+            }
+        )
+        
+        if (postActualizado) {
+            res.redirect('/');
+        } else {
+            res.send('No se pudo actualizar el posteo :(')
+        }
+    } catch (err) {
+        res.send('Se produjo un error al actualizar el posteo: ' + err)
+    }
+})
+
 
 
 DBTest()
