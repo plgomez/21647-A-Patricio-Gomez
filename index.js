@@ -94,6 +94,26 @@ app.post('/editar/:id', async function (req, res) {
     }
 })
 
+app.get('/eliminar/:id', async function (req, res) {
+    const { id } = req.params;
+
+    try {
+        const borrarPost = await Post.destroy({
+            where: {
+                id: id
+            }
+        })
+
+        if (borrarPost) {
+            res.redirect('/');
+        } else {
+            res.send('No se pudo borrar el posteo :(')
+        }
+    } catch (err) {
+        res.send('Se produjo un errror al borrar el posteo: ' + err)
+    }
+})
+
 
 
 DBTest()
