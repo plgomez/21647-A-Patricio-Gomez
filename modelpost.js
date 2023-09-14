@@ -7,12 +7,12 @@ const Post = sequelize.define('Post', {
     titulo: {
         type: DataTypes.STRING,
     },
-    descripcion: {
+    contenido: {
         type: DataTypes.STRING,
     },
     imagen: {
         type: DataTypes.STRING,
-        allowNull: true
+        //defaultValue: "https://midu.dev/images/tags/node.png",
     },
 }, 
 {

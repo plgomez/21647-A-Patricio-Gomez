@@ -27,12 +27,12 @@ app.get('/agregar', async function (req, res) {
     res.render('nuevo')})
 
 app.post('/agregar', async function (req, res) {
-    const { titulo, descripcion, imagen } = req.body
+    const { titulo, contenido, imagen } = req.body
 
     try {
         const nuevoPost = await Post.create({
             titulo: titulo,
-            descripcion: descripcion,
+            contenido: contenido,
             imagen: imagen
         });
 
@@ -69,13 +69,13 @@ app.get('/editar/:id', async function (req, res) {
 
 app.post('/editar/:id', async function (req, res) {
     const { id } = req.params;
-    const { titulo, descripcion, imagen } = req.body
+    const { titulo, contenido, imagen } = req.body
 
     try {
         const postActualizado = await Post.update(
             {
                 titulo: titulo,
-                descripcion: descripcion,
+                contenido: contenido,
                 imagen : imagen
             }, {
                 where: {

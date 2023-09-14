@@ -40,8 +40,8 @@
                             <tr>
                                 <th scope="row"><%= item.id %></th>
                                 <td><%= item.titulo %></td>
-                                <td><%= item.descripcion %></td>
-                                <td><%= item.imagen %></td>
+                                <td><%= item.contenido %></td>
+                                <td><div > <img src="<%= item.imagen %>" style="height: 60px;"></div> </td>
                                 <td>
                                     <a type="button" class="btn btn-primary" href="/editar/<%= item.id %>">
                                         Editar
