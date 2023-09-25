@@ -20,7 +20,7 @@ const Post = sequelize.define('Post', {
     });
 
 //sincronizamos la DB y creamos las tablas a partir del modelo lo comento para que no se ejecute siempre
-//Post.sync({forece : true});
+Post.sync({forece : true});
 //console.log("The table for the Post model was just (re)created!");
     
 

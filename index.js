@@ -16,6 +16,10 @@ app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 
 app.get('/', async function (req, res) {
+    res.render('index');
+})
+
+app.get('/ver', async function (req, res) {
     const posts = await Post.findAll();
 
     res.render('inicio', { posts: posts });
@@ -37,7 +41,7 @@ app.post('/agregar', async function (req, res) {
         });
 
         if (nuevoPost) {
-            res.redirect('/');
+            res.redirect('/ver');
         } else {
             res.send('No se pudo agregar el nuevo posteo en el foro :(')
         }
@@ -85,7 +89,7 @@ app.post('/editar/:id', async function (req, res) {
         )
         
         if (postActualizado) {
-            res.redirect('/');
+            res.redirect('/ver');
         } else {
             res.send('No se pudo actualizar el posteo :(')
         }
